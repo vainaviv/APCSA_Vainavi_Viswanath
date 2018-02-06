@@ -21,12 +21,11 @@ public class Line
 		yOne = y1;
 		xTwo = x2;
 		yTwo = y2;
-
 	}
 
 	public void calculateSlope( )
 	{
-		double slope = (yTwo - yOne)/(xTwo - xOne);
+		slope = ((double)yTwo - (double)yOne)/((double)xTwo - (double)xOne);
 	}
 
 	public void print( )

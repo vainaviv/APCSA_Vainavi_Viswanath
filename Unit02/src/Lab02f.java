@@ -9,7 +9,7 @@ public class Lab02f
 	public static void main( String[] args )
    {
 		//add test cases
-		Line test = new Line();
+		Line test = new Line(0, 0, 0, 0);
 		
 		test.setCoordinates(1,9,14,2);
 		test.calculateSlope();
