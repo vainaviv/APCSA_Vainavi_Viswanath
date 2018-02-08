@@ -16,35 +16,35 @@ public class Quadratic
 
 	public Quadratic()
 	{
-		Scanner keyboard = new Scanner(System.in);
-		
-		System.out.println("Enter a :: ");
-		a = keyboard.nextInt();
-
+		a = 0;
+		b = 0;
+		c = 0;
+		rootOne = 0;
+		rootTwo = 0;
 	}
 
 	public Quadratic(int quadA, int quadB, int quadC)
 	{
-		a = quadA;
-		b = quadB;
-		c = quadC;
-
+		setEquation(quadA,quadB,quadC);
 	}
 
 	public void setEquation(int quadA, int quadB, int quadC)
 	{
-
- 	}
-
+		a = quadA;
+		b = quadB;
+		c = quadC;
+	}
 	public void calcRoots( )
 	{
-
+		rootOne = (-(double)b + sqrt(pow((double)b,2)-(4*(double)a*(double)c)))/(2*(double)a); 
+		rootTwo = (-(double)b - sqrt(pow((double)b,2)-(4*(double)a*(double)c)))/(2*(double)a); 
 
 	}
 
 	public void print( )
 	{
-
+		System.out.printf("rootone :: %.2f \n",rootOne);
+		System.out.printf("roottwo :: %.2f \n\n", rootTwo);
 
 	}
 }
