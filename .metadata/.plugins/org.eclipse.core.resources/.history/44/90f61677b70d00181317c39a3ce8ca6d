@@ -52,15 +52,9 @@ public class Magpie2
 		{
 			response = "Sounds like a good teacher!";
 		}
-		else if (statement.indexOf(" ") == 0)
+		else if (statement.indexOf("") == 0)
 		{
 			response = "Say something please.";
-		}
-		else if (statement.indexOf("stupid") >= 0 || statement.indexOf("dumb") >= 0){
-			response = "Don't be mean.";
-		}
-		else if (statement.indexOf("like") >= 0 || statement.indexOf("love") >= 0){
-			response = "Good to hear!";
 		}
 		else
 		{
