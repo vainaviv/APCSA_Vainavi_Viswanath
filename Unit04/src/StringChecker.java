@@ -29,9 +29,8 @@ public class StringChecker
 
 	public boolean findLetter(char c)
 	{
-		int i = word.length();
 		int val = word.indexOf(c);
-		if (0 <= val && val <= (i - 1)) {
+		if ( val >= 0) {
 			return true;
 		}else {
 			return false;
@@ -40,9 +39,8 @@ public class StringChecker
 
 	public boolean findSubString(String s)
 	{
-		int i = word.length();
 		int val = word.indexOf(s);
-		if (0 <= val && val <= (i-1)){
+		if ( val >=0){
 			return true;
 		}else {
 			return false;

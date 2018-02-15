@@ -41,9 +41,9 @@ public class Prime
 	{
 		String output = "";
 		if (isPrime() == true) {
-			output= number + " is not prime.";
+			output= number + " is prime.";
 		}else {
-			output = number + " is prime.";
+			output = number + " is not prime.";
 		}
 		return output;
 	}

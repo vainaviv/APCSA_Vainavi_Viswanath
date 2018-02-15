@@ -1,0 +1,37 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.util.Scanner;
+import static java.lang.System.*;
+
+public class GuessingGame
+{
+	private int upperBound;
+
+	public GuessingGame(int stop)
+	{
+		upperBound = 0;
+	}
+
+	public void playGame()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		System.out.print("Guessing Game - how many numbers?");
+		upperBound = keyboard.nextInt();
+		
+
+
+
+
+
+	}
+
+	public String toString()
+	{
+		String output="";
+		return output;
+	}
+}
