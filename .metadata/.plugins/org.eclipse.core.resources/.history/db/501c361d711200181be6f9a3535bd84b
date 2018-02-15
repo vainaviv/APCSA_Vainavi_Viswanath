@@ -22,22 +22,14 @@ public class GuessingGame
 	{
 		Scanner keyboard = new Scanner(System.in);
 		Random rand = new Random();
-		int answer = rand.nextInt(upperBound) + 1;
-		int guess = 1;
+		int answer = rand.nextInt(upperBound +1);
+		int guess = 0;
 		int times = 0;
-		do {
-			if (1 <= guess && guess <= upperBound){
-				System.out.printf("Enter a number between 1 and %d \n", upperBound);
-				guess = keyboard.nextInt();
-				times ++;
-			}else {
-				System.out.println("Number out of range!");
-				System.out.printf("Enter a number between 1 and %d \n", upperBound);
-				guess = keyboard.nextInt();
-				times ++;
-		} 
-		} while (answer != guess);
-		
+		while (answer != guess){
+			System.out.printf("Enter a number between 1 and %d \n", upperBound);
+			guess = keyboard.nextInt();
+			times ++;
+		}
 		System.out.printf("It took %d guesses to guess %d \n", times, guess);
 		percent = (((double)times -1)/(double)times)*100;
 
