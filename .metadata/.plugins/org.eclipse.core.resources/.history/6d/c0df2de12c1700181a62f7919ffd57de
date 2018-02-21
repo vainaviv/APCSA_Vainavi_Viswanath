@@ -11,7 +11,7 @@ public class Lab14i
 	public static void main( String args[] )
 	{
 		RomanNumeral test = new RomanNumeral(10);
-		out.println("10 is " + test.toString());
+		out.println("10 is " + test.getNumber());
 /*
 		test.setNumber(100);
 		out.println("100 is " + test.toString());

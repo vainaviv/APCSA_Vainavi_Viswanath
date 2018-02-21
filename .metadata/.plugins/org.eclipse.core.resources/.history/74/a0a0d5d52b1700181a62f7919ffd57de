@@ -6,8 +6,6 @@
 
 import static java.lang.System.*;
 
-import java.util.Arrays;
-
 public class RomanNumeral
 {
 	private Integer number;
@@ -21,28 +19,34 @@ public class RomanNumeral
 
 	public RomanNumeral(String str)
 	{
-		roman = "";
+		roman = str;
 	}
 
 	public RomanNumeral(Integer orig)
 	{
-		number = 0;
+		
+
+
 	}
 
 	public void setNumber(Integer num)
 	{
-		number = num;
+
+
+
+
+
 	}
 
 	public void setRoman(String rom)
 	{
-		roman = rom;
+
+
+
 	}
 
 	public Integer getNumber()
 	{
-		int index = Arrays.asList(LETTERS).indexOf(roman);
-		number = NUMBERS[index];
 		return number;
 	}
 

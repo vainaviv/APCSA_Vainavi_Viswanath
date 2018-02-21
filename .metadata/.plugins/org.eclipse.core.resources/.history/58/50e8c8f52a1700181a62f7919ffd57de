@@ -22,7 +22,6 @@ public class Grades
 		length = 0;
 		int[] grades = new int[length];
 	}
-	
 	public void setGrades (double[]nums)
 	{
 		grades = nums;
@@ -41,6 +40,8 @@ public class Grades
 		{
 			sum += grades[spot];
 		}
+
+
 		return sum;
 	}
 
@@ -50,6 +51,7 @@ public class Grades
 		average = getSum()/length; 
 		return average;
 	}
+
 
 	//toString method
 	public String toString()
@@ -65,5 +67,6 @@ public class Grades
 		return output;
 		
 	}
+
 
 }
