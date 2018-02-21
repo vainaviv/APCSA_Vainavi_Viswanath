@@ -45,7 +45,7 @@ public class Triples
 				for (int z=1; z<=number; z++){
 					if (Math.pow((double)x, 2)+ Math.pow((double)y,2) == Math.pow((double)z,2)){
 						if (greatestCommonFactor(x,y,z) == 1){
-							output += y + " " + x + " " + z + "\n";
+							output += x + " " + y + " " + z + "\n";
 						}
 					}
 				}

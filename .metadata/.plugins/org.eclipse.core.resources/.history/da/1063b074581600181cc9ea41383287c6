@@ -12,7 +12,7 @@ public class Lab11j
    {
 	   Triples test = new Triples();
 	   
-	   test.setNum(110);
+	   test.setNum(5);
 	   out.println(test);
    }
 }

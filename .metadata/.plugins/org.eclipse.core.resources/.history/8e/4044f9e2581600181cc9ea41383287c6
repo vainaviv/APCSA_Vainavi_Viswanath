@@ -41,11 +41,11 @@ public class Triples
 	{
 		String output="";
 		for (int x=1; x<= number; x++){
-			for (int y=1; y<=x; y++){
+			for (int y=1; y<=number; y++){
 				for (int z=1; z<=number; z++){
-					if (Math.pow((double)x, 2)+ Math.pow((double)y,2) == Math.pow((double)z,2)){
+					if (Math.sqrt(Math.pow((double)x, 2)+ Math.pow((double)y,2)) == (double)z){
 						if (greatestCommonFactor(x,y,z) == 1){
-							output += y + " " + x + " " + z + "\n";
+							output += x + " " + y + " " + z + "\n";
 						}
 					}
 				}

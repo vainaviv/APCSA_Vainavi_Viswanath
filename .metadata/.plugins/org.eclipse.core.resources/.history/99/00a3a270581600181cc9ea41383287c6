@@ -12,7 +12,6 @@ public class Lab11j
    {
 	   Triples test = new Triples();
 	   
-	   test.setNum(110);
 	   out.println(test);
    }
 }
