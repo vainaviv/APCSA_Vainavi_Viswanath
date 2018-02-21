@@ -1,0 +1,61 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.lang.System;
+import java.lang.Math;
+import java.util.Scanner;
+
+public class Grades
+{
+	//instance variables
+	
+	private int length;
+	private int[] grades;
+
+	//constructor
+	private Grades()
+	{
+		length = 0;
+		int[] grades = new int[length];
+	}
+	private void setGrades (int[] gradebook)
+	{
+		int[] grades = gradebook;
+	}
+
+	private void length(int[] grades2) {
+		// TODO Auto-generated method stub
+		length = grades2.length;
+	}
+	//set method
+
+	private double getSum()
+	{
+		double sum=0.0;
+		for (int spot=0; spot < length; spot++)
+		{
+			sum += grades[spot];
+		}
+
+
+		return sum;
+	}
+
+	public double getAverage()
+	{
+		double average=0.0;
+		average = getSum()/length; 
+
+
+		return average;
+	}
+
+
+	//toString method
+
+
+
+}
