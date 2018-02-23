@@ -46,6 +46,7 @@ public class RomanNumeral
 			if (roman.indexOf(LETTERS[i]) == 0){
 				number += NUMBERS[i];
 				roman = roman.substring(LETTERS[i].length(), roman.length());
+				System.out.println (roman);
 				i = -1;
 			}
 		}

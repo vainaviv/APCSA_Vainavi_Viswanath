@@ -23,8 +23,6 @@ public class LetterRemover
 		setRemover(s, rem);
 	}
 	
-	
-	
 	public void setRemover(String s, char rem)
 	{
 		sentence = s;

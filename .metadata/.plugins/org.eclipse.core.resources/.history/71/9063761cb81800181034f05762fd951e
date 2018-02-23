@@ -43,10 +43,9 @@ public class RomanNumeral
 	{
 		number = 0;
 		for (int i=0; i< LETTERS.length;i++){
-			if (roman.indexOf(LETTERS[i]) == 0){
+			if (roman.indexOf(LETTERS[i]) >= 0){
 				number += NUMBERS[i];
 				roman = roman.substring(LETTERS[i].length(), roman.length());
-				i = -1;
 			}
 		}
 		return number;
