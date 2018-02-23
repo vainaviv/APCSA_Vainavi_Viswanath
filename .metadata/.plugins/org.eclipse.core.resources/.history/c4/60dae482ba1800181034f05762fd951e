@@ -20,7 +20,7 @@ public class Grades
 	public Grades()
 	{
 		length = 0;
-		grades = new double[length];
+		int[] grades = new int[length];
 	}
 	
 	public void setGrades (double[]nums)
