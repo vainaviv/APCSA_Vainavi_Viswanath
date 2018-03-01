@@ -12,7 +12,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private Card[] cards;
+	//private Card[] cards;
+	private ArrayList<Card> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -30,8 +31,9 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
+/**
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		 *** TO BE IMPLEMENTED IN ACTIVITY 2 *** 
 		int y = 0;
 		int length=  ranks.length*suits.length;
 		cards = new Card[length];
@@ -46,7 +48,21 @@ public class Deck {
 	System.out.println(Arrays.toString(cards));
 	shuffle();
 	}
-
+*/
+	public Deck(String[] ranks, String[] suits, int[] values){
+		int y=0;
+		int length = ranks.length*suits.length;
+		cards = new ArrayList<Card>();
+		for (int i=0; i<ranks.length; i++){
+			for (int x=0; x<suits.length; x++){
+				Card c = new Card(ranks[i], suits[x], values[i]);
+				cards.add(c);
+			}
+		}
+		size = cards.size();
+		System.out.println(toString());
+		shuffle();
+	}
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -75,19 +91,28 @@ public class Deck {
 	 * Randomly permute the given collection of cards
 	 * and reset the size to represent the entire deck.
 	 */
-	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-	/*	for (int k = cards.length -1; k>0; k--){
+/*	public void shuffle() {
+		*** TO BE IMPLEMENTED IN ACTIVITY 4 *** 
+		for (int k = cards.length -1; k>0; k--){
 			int howMany = k+1;
 			int start = 0;
 			int randPos = (int)(Math.random()*howMany) + start;
 			Card temp = cards[k];
-	*/
+	
 		for (int k = cards.length -1; k> 0; k--){
 			int pos = (int)(Math.random()*(k+1));
 			Card temp = cards[pos];
 			cards[pos] = cards[k];
 			cards[k] = temp;
+		}
+	}
+*/
+	public void shuffle(){
+		for (int k = cards.size() -1; k>0; k--){
+			int pos = (int)(Math.random()*(k+1));
+			Card temp = cards.get(pos);
+			cards.set(pos, cards.get(k));
+			cards.set(k, temp);
 		}
 	}
 
@@ -102,7 +127,8 @@ public class Deck {
 			return null;
 		}
 		else{
-			return cards[cards.length -1];
+			size --;
+			return cards.get(size);
 		}
 	}
 
@@ -115,7 +141,7 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
