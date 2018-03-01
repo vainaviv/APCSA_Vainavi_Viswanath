@@ -12,9 +12,6 @@ public class Lab16d
 	{
 		//make a new MadLib
 		
-		MadLib test= new MadLib();
-		
-		
 		out.println("\n");
 	}
 }

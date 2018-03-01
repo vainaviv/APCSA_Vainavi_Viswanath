@@ -29,22 +29,8 @@ public class MadLib
 		//load stuff	
 		
 		try{
-			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\Story.dat"));
-			while (file.hasNext()){
-				String symbol = file.next();
-				if (symbol.equals("#")){
-					
-				}
-				else if(symbol.equals("@")){
-					
-				}
-				else if (symbol.equals("&")){
-					
-				}
-				else{
-					
-				}
-			}
+			Scanner file = new Scanner(new File(fileName));
+	
 		
 		}
 		catch(Exception e)
