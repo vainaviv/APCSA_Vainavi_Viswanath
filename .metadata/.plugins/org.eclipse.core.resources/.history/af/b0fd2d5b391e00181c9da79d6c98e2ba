@@ -1,0 +1,46 @@
+
+public class Numbers {
+	private int number, length;
+	private int[] nums;
+	
+	public Numbers(){
+		number = 0;
+		length = 0;
+		nums = new int[0];
+	}
+	public Numbers(int num){
+		setNumbers(num);
+	}
+	public void setNumbers(int num){
+		number = num;
+		for (int i=number; i > 0; i--){
+			length += 1;
+			nums[length-1]= (num % 10);
+			num /= 10;
+			System.out.print(num);
+		}
+	}
+	public  boolean isGoofy(int num){
+		int div = 0;
+		for (int i=0; i < length; i++){
+			if (num % nums[i] == 0){
+				div += nums[i];
+			}
+		}
+		if ((div%2) == 1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public  int[] getSomeGoofyNumbers (int count){
+		int[] goofy = new int[count];
+		for (int i=0; i < count*2; i++){
+			if (isGoofy(i) == true){
+				goofy[i] = i;
+			}
+		}
+		return goofy;
+	}
+}

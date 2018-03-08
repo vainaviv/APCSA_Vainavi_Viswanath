@@ -27,29 +27,36 @@ public class MadLib
 	public MadLib(String fileName)
 	{
 		//load stuff	
-		
+		this();
 		try{
-			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\Story.dat"));
+			Scanner file = new Scanner(new File(fileName));
+			loadNouns();
+			loadVerbs();
+			loadAdjectives(); 
 			while (file.hasNext()){
 				String symbol = file.next();
+				//System.out.print(symbol);
 				if (symbol.equals("#")){
-					
+					String noun = getRandomNoun();
+					System.out.print(noun + " ");
 				}
 				else if(symbol.equals("@")){
-					
+					String verb = getRandomVerb();
+					System.out.print(verb + " "); 
 				}
 				else if (symbol.equals("&")){
-					
+					String adjective = getRandomAdjective();
+					System.out.print(adjective + " ");
 				}
 				else{
-					
+					System.out.print(symbol + " ");
 				}
 			}
 		
 		}
 		catch(Exception e)
 		{
-			out.println("Houston we have a problem!");
+			out.println(" Houston we have a problem!");
 		}
 		
 	}
@@ -57,10 +64,10 @@ public class MadLib
 	public void loadNouns()
 	{
 		try{
-		Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\Notes.dat"));
-		while (file.hasNext()){
-			nouns.add(file.next());
-		}
+			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
+			while (file.hasNext()){
+				nouns.add(file.next());
+			}
 		}
 		catch(Exception e)
 		{
@@ -72,10 +79,10 @@ public class MadLib
 	public void loadVerbs()
 	{
 		try{
-		Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\Verbs.dat"));
-		while (file.hasNext()){
-			verbs.add(file.next());
-		}
+			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
+			while (file.hasNext()){
+				verbs.add(file.next());
+			}
 		}
 		catch(Exception e)
 		{
@@ -86,7 +93,7 @@ public class MadLib
 	public void loadAdjectives()
 	{
 		try{
-			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\Adjectives.dat"));
+			Scanner file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
 			while (file.hasNext()){
 				adjectives.add(file.next());
 			}
@@ -106,7 +113,7 @@ public class MadLib
 	public String getRandomNoun()
 	{
 		int spot = (int)(Math.random()*nouns.size());
-		return verbs.get(spot);
+		return nouns.get(spot);
 	}
 	
 	public String getRandomAdjective()

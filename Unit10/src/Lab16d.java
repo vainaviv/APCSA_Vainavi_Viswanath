@@ -12,8 +12,7 @@ public class Lab16d
 	{
 		//make a new MadLib
 		
-		MadLib test= new MadLib();
-		
+		MadLib test= new MadLib("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\story.dat");
 		
 		out.println("\n");
 	}

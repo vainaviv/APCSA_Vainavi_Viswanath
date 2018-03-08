@@ -1,0 +1,29 @@
+
+public class Numbers {
+	private int number;
+	
+	public Numbers(){
+		number = 0;
+	}
+	public Numbers(int num){
+		setNumbers(num);
+	}
+	public void setNumbers(int num){
+		number = num;
+	}
+	public static boolean isGoofy(int num){
+		int div = 0;
+		for (int i=0; i < 2; i++){
+			if (num % (num % 10) == 0){
+				div += (num %10);
+				num /= 10;
+			}
+		}
+		if ((div%2) == 1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
