@@ -25,9 +25,9 @@ public class Grades
 	
 	public void setGrades(String gradeList)
 	{
-		System.out.println(gradeList);
 		gradeList += " ";
 		int size = Integer.parseInt(gradeList.substring(0, gradeList.indexOf(" "))); 
+		System.out.println("size is " + size);
 		int index = gradeList.indexOf("-") + 1;
 		grades = new double[size];
 		for (int i=0; i < size; i++){
