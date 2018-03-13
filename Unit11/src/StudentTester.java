@@ -19,6 +19,6 @@ public class StudentTester
 		out.println("average = " + stu.getAverage());	
 		out.println("average after dropping low grade = " + stu.getAverageMinusLow());				
 		out.println("low grade = " + stu.getLowGrade());		
-		out.println("high grade = " + stu.getHighGrade());									
+		out.println("high grade = " + stu.getHighGrade());	
 	}		
 }
