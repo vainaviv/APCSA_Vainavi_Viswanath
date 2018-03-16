@@ -20,17 +20,31 @@ public class Word implements Comparable<Word>
 
 	public int compareTo( Word rhs )
 	{;
-		if (this.length() > rhs.getWord()){
+		if (word.length() > rhs.getWord().length()){
 			return 1;
 		}
-		else if (word.length() < rhs.getWord()){
+		else if (word.length() < rhs.getWord().length()){
 			return -1;
 		}
+		else {
+			if (word.compareTo(rhs.toString())>0){
+				return 1;
+			}
+			else if (word.compareTo(rhs.toString())<0){
+				return -1;
+			}
+		}
+		return 0;
+	}
+	
+	public int sort(){
+		
+		
 		return 0;
 	}
 
 	public String toString()
 	{
-		return "";
+		return word;
 	}
 }
