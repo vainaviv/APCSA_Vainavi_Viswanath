@@ -19,7 +19,7 @@ public class Word implements Comparable<Word>
 	}
 
 	public int compareTo( Word rhs )
-	{;
+	{
 		if (word.length() > rhs.getWord().length()){
 			return 1;
 		}
@@ -37,11 +37,11 @@ public class Word implements Comparable<Word>
 		return 0;
 	}
 	
-	public int sort(){
+	/*(public int sort(){
 		
 		
 		return 0;
-	}
+	}*/
 
 	public String toString()
 	{
