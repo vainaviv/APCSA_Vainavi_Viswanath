@@ -33,7 +33,6 @@ public class Lab18d
 					words.set(j, temp);
 				}
 			}
-		
 		}
 		for (int i=0; i < words.size(); i++){
 			System.out.println(words.get(i));

@@ -234,6 +234,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 		panel.add(totalsMsg);
 
 		if (!board.anotherPlayIsPossible()) {
+			//System.out.println("signalling loss");
 			signalLoss();
 		}
 
