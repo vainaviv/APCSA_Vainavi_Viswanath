@@ -292,7 +292,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 			}
 			// Make sure that the selected cards represent a legal replacement.
 			if (!board.isLegal(selection)) {
-				//System.out.println("Error");
+				System.out.println("Error");
 				signalError();
 				return;
 			}

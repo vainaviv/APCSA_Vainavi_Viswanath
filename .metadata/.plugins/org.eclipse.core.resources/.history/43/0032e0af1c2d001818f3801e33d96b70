@@ -54,7 +54,6 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		System.out.println(selectedCards);
 		if (selectedCards.size() == 2){
 			return containsPairSum11(selectedCards);
 		}
@@ -88,8 +87,7 @@ public class ElevensBoard extends Board {
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		for (int i=0; i < selectedCards.size(); i++){
 			for (int j=i; j < selectedCards.size(); j++){
-				//System.out.println(cardAt(i) + " " + cardAt(j));
-				if ((cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(j)).pointValue()) == 11){
+				if ((cardAt(i).pointValue() + cardAt(j).pointValue()) == 11){
 					return true;
 				}
 			}
