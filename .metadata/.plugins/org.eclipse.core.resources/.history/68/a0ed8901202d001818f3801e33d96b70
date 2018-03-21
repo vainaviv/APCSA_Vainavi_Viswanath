@@ -110,11 +110,11 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		if (selectedCards.size() == 3){
 			for (int i=0; i < selectedCards.size(); i++){
-				if (cardAt(selectedCards.get(i)).rank().equals("jack")){
+				if (cardAt(i).rank().equals("jack")){
 					for (int j=0; j < selectedCards.size(); j++){
-						if (cardAt(selectedCards.get(j)).rank().equals("queen")){
+						if (cardAt(j).rank().equals("queen")){
 							for (int x=0; x < selectedCards.size(); x++){
-								if (cardAt(selectedCards.get(x)).rank().equals("king")){
+								if (cardAt(x).rank().equals("king")){
 									return true;
 								}
 							}
