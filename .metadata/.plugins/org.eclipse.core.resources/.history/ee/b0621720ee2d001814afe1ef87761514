@@ -20,10 +20,6 @@ public class Lab21i
 		while (file.hasNextLine()){
 			mazes.add(file.nextLine());
 		}
-		for (int i=0; i < mazes.size(); i++){
-			Maze test = new Maze(size,mazes.get(i));
-		}
-	
 		
 	}
 }

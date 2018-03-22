@@ -21,11 +21,9 @@ public class Maze
 	public Maze(int size, String line)
 	{
 		maze = new int[size][size];
-		int index = 0;
 		for (int i=0; i< maze.length; i++){
 			for (int j=0; j< maze[0].length; j++){
-				maze[i][j] = line.Integer.parseInt(line.charAt(index));
-				index ++;
+				
 			}
 		}
 
