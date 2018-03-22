@@ -18,9 +18,13 @@ public class TicTacToe
 
 	public TicTacToe(String game)
 	{
+		this();
 		int index = 0;
 		for (int i=0; i<3; i++){
 			for (int j=0; j<3; j++){
+				//System.out.println(index);
+				//System.out.println(i + " " + j);
+				//System.out.println(game.charAt(index));
 				mat[i][j] = game.charAt(index);
 				index ++;
 			}
@@ -32,7 +36,10 @@ public class TicTacToe
 	{
 		int oCount = 0;
 		int xCount = 0;
+		// check horizontal
 		for (int i=0; i < mat.length; i++){
+			oCount = 0;
+			xCount=0;
 			for (int j=0; j<mat[0].length; j++){
 				if (mat[i][j] == 'O'){
 					oCount++;
@@ -40,32 +47,38 @@ public class TicTacToe
 				else if (mat[i][j] == 'X'){
 					xCount++;
 				}
-			}
-			if (oCount == 3){
-				return "O wins horizontally";
-			}
-			else if (xCount == 3){
-				return "X wins horizontally";
+				if (oCount == 3){
+					return "O wins horizontally";
+				}
+				else if (xCount == 3){
+					return "X wins horizontally";
+				}
 			}
 		}
-		oCount = 0;
-		xCount = 0;
+
+
+		// check vertical
 		for (int i=0; i<mat[0].length; i++){
+			oCount = 0;
+			xCount = 0;
 			for (int j=0; j<mat.length; j++){
-				if (mat[i][j] == 'O'){
+				if (mat[j][i] == 'O'){
 					oCount++;
 				}
-				else if (mat[i][j] == 'X'){
+				else if (mat[j][i] == 'X'){
 					xCount++;
 				}
-			}
-			if (oCount == 3){
-				return "O wins vertically";
-			}
-			else if (xCount == 3){
-				return "X wins vertically";
+				if (oCount == 3){
+					return "O wins vertically";
+				}
+				else if (xCount == 3){
+					return "X wins vertically";
+				}
 			}
 		}
+		
+		
+		// check diagonal from top left to bottom right
 		oCount = 0;
 		xCount = 0;
 		for (int i=0; i<mat.length; i++){
@@ -75,14 +88,31 @@ public class TicTacToe
 			else if (mat[i][i] == 'X'){
 				xCount ++;
 			}
-			if (oCount == 3){
-				return "O wins diagonally";
+		}
+		if (oCount == 3){
+			return "O wins diagonally";
+		}
+		else if (xCount == 3){
+			return "X wins diagonally";
+		}
+		
+		// check diagonal from top right to bottom left
+		oCount = 0;
+		xCount = 0;
+		for (int i=0; i < mat.length; i++){
+			if (mat[i][mat.length-1-i] == 'X'){
+				xCount ++;
 			}
-			else if (xCount == 3){
-				return "X wins diagonally";
+			else if (mat[i][mat.length-1-i] == 'O'){
+				oCount ++;
 			}
 		}
-
+		if (oCount == 3){
+			return "O wins diagonally";
+		}
+		else if (xCount == 3){
+			return "X wins diagonally";
+		}
 
 		return "cat's game - no winner!";
 	}
@@ -90,12 +120,14 @@ public class TicTacToe
 	public String toString()
 	{
 		String output="";
-
-
-
-
-
-
+		for (int r=0; r<mat.length; r++){
+			for (int c=0; c<mat[0].length; c++){
+				output += mat[r][c];
+			}
+			output += "\n";
+		}
+		output += getWinner();
+		
 		return output+"\n\n";
 	}
 }
