@@ -14,14 +14,24 @@ public class Lab21i
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File("H:\\Unit14_2016\\Unit14-Assignments\\lab21i.dat"));
-		int size = file.nextInt();
-		ArrayList<String> mazes = new ArrayList<String>();
-		while (file.hasNextLine()){
-			mazes.add(file.nextLine());
-		}
-		for (int i=0; i < mazes.size(); i++){
-			Maze test = new Maze(size,mazes.get(i));
+		Scanner file = new Scanner(new File("H:\\Unit14_2016\\Unit14-Assignments\\lab21ib.dat"));
+	
+		//while (file.hasNextLine()){
+		while (file.hasNext()){
+			int size = file.nextInt();
+			file.nextLine();
+			System.out.println("");
+			int[] maze = new int[size*size];
+			int index = 0;
+			while (file.hasNextInt() && index<size*size){
+				maze[index] = file.nextInt();
+				index ++;
+			}
+
+				Maze test = new Maze(size,maze);
+				test.hasExitPath(0,0);
+				System.out.println(test);
+				
 		}
 	
 		
