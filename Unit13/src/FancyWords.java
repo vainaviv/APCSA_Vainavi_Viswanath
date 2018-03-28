@@ -35,7 +35,7 @@ public class FancyWords
 			wordRay[i] = new StringBuffer(wordRay[i]).reverse().toString();
 		}
 		Collections.reverse(Arrays.asList(wordRay));
-		System.out.println(Arrays.toString(wordRay));
+		//System.out.println(Arrays.toString(wordRay));
 	
 		for (int c=0; c < wordRay.length; c++){
 		while (wordRay[c].length() < max){
