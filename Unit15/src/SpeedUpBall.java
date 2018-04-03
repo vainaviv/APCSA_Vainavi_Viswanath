@@ -8,9 +8,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-class SpeedUpBall extends Ball
+class SpeedUpBall extends BlinkyBall
 {
-	Ball ball;
+	BlinkyBall ball;
    //instance variables
 
    public SpeedUpBall()
@@ -39,16 +39,25 @@ class SpeedUpBall extends Ball
    {
 	   super(x,y,wid,ht,col,xSpd,ySpd);
    }
-
    public void setXSpeed( int xSpd )
    {
-	   xSpd = ball.getXSpeed() + 1;
-	   ball.setXSpeed(xSpd);
+	   if (xSpd > 0){
+		   xSpd++;
+	   }
+	   else{
+		   xSpd --;
+	   }
+	   super.setXSpeed(xSpd);
    }
-
-   public void setYSpeed( int ySpd )
+   public void setYSpeed(int ySpd)
    {
-	  ball.setYSpeed(ySpd++);
+	   if (ySpd > 0){
+		   ySpd++;
+	   }
+	   else {
+		   ySpd--;
+	   }
+	  super.setYSpeed(ySpd);
    }
 }
 

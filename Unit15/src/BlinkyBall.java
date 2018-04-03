@@ -36,26 +36,21 @@ class BlinkyBall extends Ball
    {
 	   super(x,y,wid,ht,col,xSpd,ySpd);
    }
-
    public Color randomColor()
    {
-   		int r = 0;		//use Math.random()
- 		int g = 0;
- 		int b = 0;
- 		int red = (int)(Math.random()*255 + 1);
- 		int green = (int)(Math.random()*255 + 1);
- 		int blue = (int)(Math.random()*255+1);
+ 		int red = (int)(Math.random()*256);
+ 		int green = (int)(Math.random()*256);
+ 		int blue = (int)(Math.random()*256);
  		
- 		return new Color(r,g,b);
+ 		return new Color(red,green,blue);
    }
-
+   @Override
    public void moveAndDraw(Graphics window)
    {
 	   draw(window, Color.white);
 	   setX(getX()+super.getXSpeed());
 	   setY(getY() + super.getYSpeed());
 	   draw(window,randomColor());
-       //super.draw(window);
 
    }
 }

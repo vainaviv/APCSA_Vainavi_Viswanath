@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 
 public class Pong extends Canvas implements KeyListener, Runnable
 {
-	private Ball ball;
+	private SpeedUpBall ball;
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
 	private boolean[] keys;
@@ -28,9 +28,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-		ball = new Ball(50,50,10,10,Color.BLUE, 3, 1);
-		leftPaddle = new Paddle (20, 200, 20, 50, Color.RED, 3);
-		rightPaddle = new Paddle(760, 200, 20, 50, Color.GREEN, 3);
+		ball = new SpeedUpBall(50,50,10,10,Color.BLUE, 2, 0);
+		leftPaddle = new Paddle (20, 200, 20, 50, Color.RED, 4);
+		rightPaddle = new Paddle(760, 200, 20, 50, Color.GREEN, 4);
 		right_points = 0;
 		left_points = 0;
 
@@ -66,9 +66,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
-		graphToBack.setColor(Color.RED);
-		graphToBack.drawString("Right points: " + right_points, 300, 100);
-		graphToBack.drawString("Left Points: " + left_points, 300, 120);
+		graphToBack.setColor(Color.BLACK);
+		graphToBack.drawString("Right points: " + right_points, 275, 50);
+		graphToBack.drawString("Left Points: " + left_points, 275, 70);
 
 		//see if the ball hits the left paddle
 		if (ball.getX()-ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXSpeed()) 
@@ -93,19 +93,18 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 			if (ball.getX()<40){
 				graphToBack.setColor(Color.WHITE);
-				graphToBack.drawString("Right points: " + right_points, 300, 100);
+				graphToBack.drawString("Right points: " + right_points, 275, 50);
 				right_points ++;
-				graphToBack.setColor(Color.RED);
-				graphToBack.drawString("Right points: " + right_points, 300, 100);
-				graphToBack.drawString("Left Points: " + left_points, 300, 120);
+				graphToBack.setColor(Color.BLACK);
+				graphToBack.drawString("Right points: " + right_points, 275, 50);
 				
 			}
 			else if (ball.getX() > 720){
 				graphToBack.setColor(Color.WHITE);
-				graphToBack.drawString("Left Points: " + left_points, 300, 120);
+				graphToBack.drawString("Left Points: " + left_points, 275, 70);
 				left_points ++;
-				graphToBack.setColor(Color.RED);
-				graphToBack.drawString("Left Points: " + left_points, 300, 120);
+				graphToBack.setColor(Color.BLACK);
+				graphToBack.drawString("Left Points: " + left_points, 275, 70);
 			}
 			ball.setX(400);
 			ball.setY(250);
