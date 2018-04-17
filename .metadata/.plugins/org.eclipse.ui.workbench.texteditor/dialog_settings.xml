@@ -2,16 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="setPos" key="selection"/>
+		<item value="getTotal" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="getCount"/>
+			<item value="getTotal"/>
+			<item value="getCouny"/>
+			<item value="getPixels2D"/>
+			<item value="getPixel2D"/>
 			<item value="setPos"/>
 			<item value="setXSpeed"/>
 			<item value="replaceSelectedCards"/>
-			<item value="replace"/>
 		</list>
 		<list key="replacehistory">
 		</list>
