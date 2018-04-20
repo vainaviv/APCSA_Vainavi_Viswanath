@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
-	private Alien alienOne;
-	private Alien alienTwo;
+	//private Alien alienOne;
+	//private Alien alienTwo;
 	private Ammo ammo;
 
     private AlienHorde horde;
@@ -29,6 +29,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private boolean[] keys;
 	private BufferedImage back;
 
+	int cooldown = 0;
+	
 	public OuterSpace()
 	{
 		setBackground(Color.black);
@@ -38,11 +40,16 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//instantiate other instance variables
 		//Ship, Alien
 		ship = new Ship();
-		alienOne = new Alien(400,50,30,30,0);
-		alienTwo = new Alien(430,50,30,30,0);
-		ammo = new Ammo();
+		//alienOne = new Alien(400,50,30,30,0);
+		//alienTwo = new Alien(430,50,30,30,0);
+		//ammo = new Ammo();
 		horde = new AlienHorde(20);
 		shots = new Bullets();
+		
+		
+		ammo = new Ammo(ship.getX()+ship.getWidth()/2, ship.getY(), 2);		
+		shots.add(ammo);
+		
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -75,10 +82,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		twoDGraph.drawImage(back, null, 0, 0);
 		ship.draw(window);
-		alienOne.draw(window);
-		alienTwo.draw(window);
-		ammo.draw(window);
-		ammo.move("UP");
+		horde.drawEmAll(window);
+		horde.moveEmAll();
+		//alienOne.draw(window);
+		//alienTwo.draw(window);
+		//ammo.draw(window);
+		//ammo.move("UP");
+		
+		for (int i=0; i<shots.getList().size(); i++){
+			shots.getList().get(i).draw(window);
+			shots.getList().get(i).move("UP");
+		}
 		
 		horde.drawEmAll(window);
 		horde.moveEmAll();
@@ -97,8 +111,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			ship.move("n");
 		}
 		else if (keys[4] == true){
-			ammo = new Ammo(ship.getX()+ship.getWidth()/2, ship.getY(), 2);		
+			if (cooldown <= 0) {
+				shots.add(new Ammo(ship.getX()+ship.getWidth()/2, ship.getY(), 2));
+				cooldown = 100;
+			}
+			//shots.getList().get(index).move("UP");
 		}
+		
+		cooldown--;
 
 		//add code to move Ship, Alien, etc.
 		//alienOne.move("RIGHT");
@@ -127,7 +147,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			alienTwo.draw(window);
 		}*/
 		
-		horde.removeDeadOnes(shots);
+		horde.removeDeadOnes(shots.getList());
+		horde.drawEmAll(window);
 	}
 
 

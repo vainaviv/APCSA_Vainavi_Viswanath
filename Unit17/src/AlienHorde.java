@@ -20,7 +20,7 @@ public class AlienHorde
 	{
 		aliens = new ArrayList<Alien>();
 		for (int i=0; i<size; i++){
-			Alien alien = new Alien();
+			Alien alien = new Alien(i*50, 50, 40, 40, 1);
 			add(alien);
 		}
 	}
@@ -30,17 +30,17 @@ public class AlienHorde
 		aliens.add(al);
 	}
 
-	public void drawEmAll( Graphics window )
+	public void drawEmAll(Graphics window)
 	{
 		for (int i=0; i<aliens.size(); i++){
-			aliens.get(i).draw(window); 
+			aliens.get(i).draw(window);
 		}
 	}
 
 	public void moveEmAll()
 	{
 		for (int i=0; i<aliens.size(); i++){
-			aliens.get(i).move("LEFT");
+			aliens.get(i).move("RIGHT");
 		}
 	}
 
@@ -53,7 +53,6 @@ public class AlienHorde
 						&& (shots.get(i).getY() >= (aliens.get(j).getY()-aliens.get(j).getHeight()/2) &&
 						shots.get(i).getY() <= (aliens.get(j).getY()+aliens.get(j).getHeight()/2))){
 					aliens.remove(j);
-					//aliens.get(j).draw(window);
 				}
 			}
 		}

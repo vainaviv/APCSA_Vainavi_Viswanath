@@ -18,7 +18,7 @@ public class Ship extends MovingThing
 
 	public Ship()
 	{
-		this(50,50,50,50,10);
+		this(400,500,50,50,2);
 	}
 
 	public Ship(int x, int y)
@@ -66,16 +66,16 @@ public class Ship extends MovingThing
 	{
 		//add code here
 		if (direction.equals("j")){
-			super.setX(super.getX()+1);
+			super.setX(super.getX()+speed);
 		}
 		else if (direction.equals("h")){
-			super.setX(super.getX()-1);
+			super.setX(super.getX()-speed);
 		}
 		else if (direction.equals("u")){
-			super.setY(super.getY()-1);
+			super.setY(super.getY()-speed);
 		}
 		else if (direction.equals("n")){
-			super.setY(super.getY()+1);
+			super.setY(super.getY()+speed);
 		}
 	}
 
