@@ -433,5 +433,39 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
+
+public void blur(int x, int y, int w, int h) {
+	// TODO Auto-generated method stub
+	  System.out.println("Vainavi Viswanath, Period 1, 4/24/16, 07");
+	  Pixel topPix = null;
+	  Pixel botPix = null;
+	  Pixel rightPix = null;
+	  Pixel leftPix = null;
+	  Pixel topRight = null;
+	  Pixel topLeft = null;
+	  Pixel botRight = null;
+	  Pixel botLeft = null;
+	  Pixel mod = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (int i=x; i<x+w; i++){
+		  for (int j=y; j<y+h; j++){
+			  mod = pixels[i][j];
+			  topPix = pixels[i-1][j];
+			  botPix = pixels[i+1][j];
+			  rightPix = pixels[i][j+1];
+			  leftPix = pixels[i][j-1];
+			  topRight = pixels[i-1][j+1];
+			  topLeft = pixels[i-1][j-1];
+			  botRight = pixels[i+1][j+1];
+			  botLeft = pixels[i+1][j-1];
+			  int red = (topPix.getRed()+botPix.getRed()+rightPix.getRed()+leftPix.getRed()+topRight.getRed()+topLeft.getRed()+botRight.getRed()+botLeft.getRed())/8;
+			  int blue = (topPix.getBlue()+botPix.getBlue()+rightPix.getBlue()+leftPix.getBlue()+topRight.getBlue()+topLeft.getBlue()+botRight.getBlue()+botLeft.getBlue())/8;
+			  int green = (topPix.getGreen()+botPix.getGreen()+rightPix.getGreen()+leftPix.getGreen()+topRight.getGreen()+topLeft.getGreen()+botRight.getGreen()+botLeft.getGreen())/8;
+			  mod.setRed(red);
+			  mod.setBlue(blue);
+			  mod.setGreen(green);
+		  }
+	  }
+}
   
 } // this } is the end of class Picture, put all new methods before this

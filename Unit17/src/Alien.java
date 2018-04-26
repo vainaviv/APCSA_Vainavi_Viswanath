@@ -6,6 +6,8 @@
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -79,9 +81,7 @@ public class Alien extends MovingThing
 		   setY(getY() + getHeight());
 	   }
 	   
-	   setX(getX()+speed);
-	   
-	   
+	   setX(getX()+speed); 
 	}
 
 	public void draw( Graphics window )
@@ -92,5 +92,10 @@ public class Alien extends MovingThing
 	public String toString()
 	{
 		return "";
+	}
+
+	public boolean destroy(ArrayList<Ammo> shots) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

@@ -20,9 +20,12 @@ public class AlienHorde
 	{
 		aliens = new ArrayList<Alien>();
 		for (int i=0; i<size; i++){
-			Alien alien = new Alien(i*50, 50, 40, 40, 1);
+			Alien alien = new Alien(i*50, 70, 40, 40, 1);
 			add(alien);
 		}
+		int pos = (int) (Math.random()*20);
+		aliens.remove(pos);
+		aliens.set(pos, new Jewel(pos*50,75,15,15,1));
 	}
 
 	public void add(Alien al)
@@ -44,7 +47,7 @@ public class AlienHorde
 		}
 	}
 
-	public void removeDeadOnes(List<Ammo> shots)
+	public void removeDeadOnes(ArrayList<Ammo> shots)
 	{
 		for (int i=0; i<shots.size(); i++){
 			for (int j=0; j<aliens.size(); j++){
@@ -52,7 +55,15 @@ public class AlienHorde
 						shots.get(i).getX() <= (aliens.get(j).getX()+aliens.get(j).getWidth()/2))
 						&& (shots.get(i).getY() >= (aliens.get(j).getY()-aliens.get(j).getHeight()/2) &&
 						shots.get(i).getY() <= (aliens.get(j).getY()+aliens.get(j).getHeight()/2))){
-					aliens.remove(j);
+					if (aliens.get(j).destroy(shots)){
+						for (int x=0; x<aliens.size(); x++){
+							aliens.remove(x);
+							x--;
+						}
+					}
+					else {
+						aliens.remove(j);
+					}
 				}
 			}
 		}
