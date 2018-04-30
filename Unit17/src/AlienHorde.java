@@ -21,11 +21,13 @@ public class AlienHorde
 		aliens = new ArrayList<Alien>();
 		for (int i=0; i<size; i++){
 			Alien alien = new Alien(i*50, 70, 40, 40, 1);
-			add(alien);
+			//System.out.println(i);
+			add(alien); 
 		}
-		int pos = (int) (Math.random()*20);
-		aliens.remove(pos);
-		aliens.set(pos, new Jewel(pos*50,75,15,15,1));
+		int pos = (int) (Math.random()*aliens.size());
+		System.out.println(pos);
+		aliens.add(pos, new Jewel(pos*50,75,15,15,1));
+		aliens.remove(pos+1);
 	}
 
 	public void add(Alien al)
