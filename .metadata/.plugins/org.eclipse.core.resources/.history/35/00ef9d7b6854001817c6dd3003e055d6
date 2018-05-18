@@ -1,0 +1,56 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+
+public class Blocks {
+	private ArrayList<Tile> allTiles;
+	
+	public Blocks(){
+		ArrayList<Tile >top = new ArrayList<Tile>();
+		ArrayList<Tile> bottom = new ArrayList<Tile>();
+		ArrayList<Tile> left = new ArrayList<Tile>();
+		ArrayList<Tile> right = new ArrayList<Tile>();
+		
+		for (int i=0; i<770; i+=100){
+			top.add(new Tile(i,10,40,20,Color.BLUE));
+			top.add(new Tile(i,40,40,20,Color.BLUE));
+			bottom.add(new Tile(i, 505,40,20,Color.BLUE));
+			bottom.add(new Tile (i, 535, 40,20,Color.BLUE));
+		}
+		
+		for (int i=40; i<450; i+=110){
+			left.add(new Tile(10,i,20,40,Color.BLUE));
+			left.add(new Tile(40,i,20,40,Color.BLUE));
+			right.add(new Tile(755,i,20,40,Color.BLUE));
+			right.add(new Tile(725, i,20,40,Color.BLUE));
+		}
+		
+		allTiles = new ArrayList<Tile>();
+		for (int i=0; i<top.size();i++){
+			allTiles.add(top.get(i));
+		}
+		for (int i=0; i<bottom.size();i++){
+			allTiles.add(bottom.get(i));
+		}
+		for (int i=0; i<left.size(); i++){
+			allTiles.add(left.get(i));
+		}
+		for (int i=0; i<right.size();i++){
+			allTiles.add(right.get(i));
+		}
+	}
+	
+	public void draw(Graphics window){
+		for (Tile x: allTiles){
+			x.draw(window);
+		}
+	}
+	
+	public ArrayList<Tile> getTiles(){
+		return allTiles;
+	}
+	
+	public void destroy(int x){
+		allTiles.remove(x);
+	}
+}

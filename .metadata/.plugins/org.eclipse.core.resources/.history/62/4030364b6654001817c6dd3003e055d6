@@ -1,0 +1,38 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+
+public class Blocks {
+	private ArrayList<Tile> top;
+	private ArrayList<Tile> bottom;
+	private ArrayList<Tile> left;
+	private ArrayList<Tile> right;
+	
+	public Blocks(){
+		top = new ArrayList<Tile>();
+		bottom = new ArrayList<Tile>();
+		left = new ArrayList<Tile>();
+		right = new ArrayList<Tile>();
+		
+		for (int i=0; i<19; i++){
+			top.add(new Tile(20,20*i,20,40,Color.BLUE));
+			top.add(new Tile(50,20*i,20,40,Color.BLUE));
+			bottom.add(new Tile(570, 20*i,20,40,Color.BLUE));
+			bottom.add(new Tile (540, 20*i, 20,40,Color.BLUE));
+		}
+	}
+	
+	public void draw(Graphics window){
+		for (Block x: blocks){
+			x.draw(window);
+		}
+	}
+	
+	public ArrayList<Block> getBlocks(){
+		return blocks;
+	}
+	
+	public void destroy(int x){
+		blocks.remove(x);
+	}
+}

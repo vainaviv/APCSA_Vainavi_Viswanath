@@ -18,21 +18,21 @@ import java.awt.event.ActionListener;
 public class Pong extends Canvas implements KeyListener, Runnable
 {
 	private SpeedUpBall ball;
-	private Paddle leftPaddle;
+	private Paddle paddle;
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private Integer right_points, left_points;
+	//private Integer right_points, left_points;
 
 
 	public Pong()
 	{
 		//set up all variables related to the game
 		ball = new SpeedUpBall(50,50,10,10,Color.BLUE, 2, 0);
-		leftPaddle = new Paddle (20, 200, 20, 50, Color.RED, 4);
-		rightPaddle = new Paddle(760, 200, 20, 50, Color.GREEN, 4);
-		right_points = 0;
-		left_points = 0;
+		paddle = new Paddle (200, 200, 40, 40, Color.RED, 4);
+		//rightPaddle = new Paddle(760, 200, 20, 50, Color.GREEN, 4);
+		//right_points = 0;
+		//left_points = 0;
 
 		keys = new boolean[4];
 
@@ -64,20 +64,20 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 
 		ball.moveAndDraw(graphToBack);
-		leftPaddle.draw(graphToBack);
+		paddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString("Right points: " + right_points, 275, 50);
-		graphToBack.drawString("Left Points: " + left_points, 275, 70);
+		//graphToBack.drawString("Right points: " + right_points, 275, 50);
+		//graphToBack.drawString("Left Points: " + left_points, 275, 70);
 
 		//see if the ball hits the left paddle
-		if (ball.getX()-ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXSpeed()) 
+		/*if (ball.getX()-ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXSpeed()) 
 		&& ball.getY()>= leftPaddle.getY() && 
 		ball.getY() <= leftPaddle.getY() + leftPaddle.getHeight()){
 			ball.setXSpeed(-ball.getXSpeed());
-		}
+		}*/
 				
-		//see if the ball hits the right paddle
+		//see if the ball hits the blocks
 		if (ball.getX()+ball.getWidth() >= rightPaddle.getX()+Math.abs(ball.getXSpeed()) 
 		&& ball.getY() >= rightPaddle.getY() && 
 		ball.getY() <= rightPaddle.getY() + leftPaddle.getHeight()){
@@ -85,7 +85,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}
 		
 		//see if ball hits left wall or right wall
-		if(!(ball.getX()>=10 && ball.getX()<=780))
+		/*if(!(ball.getX()>=10 && ball.getX()<=780))
 		{
 			ball.setXSpeed(0);
 			ball.setYSpeed(0);
@@ -111,23 +111,28 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.draw(graphToBack, Color.BLUE);
 			ball.setXSpeed(3);
 			ball.setYSpeed(1);
-		}
+		}*/
 
 		//see if the ball hits the top or bottom wall 
 		if (!(ball.getY()>=20 && ball.getY()<=450)){
 			ball.setYSpeed(-ball.getYSpeed());
 		}
 		
+		// see if ball hits the left or right wall
+		if (!(ball.getX()>=10 && ball.getX()<=780)){
+			ball.setXSpeed(-ball.getXSpeed());
+		}
+		
 		//see if the paddles need to be moved
 		if(keys[0] == true)
 		{
 			//move left paddle up and draw it on the window
-			leftPaddle.moveDownAndDraw(graphToBack);
+			paddle.moveDownAndDraw(graphToBack);
 		}
 		if(keys[1] == true)
 		{
 			//move left paddle down and draw it on the window
-			leftPaddle.moveUpAndDraw(graphToBack);
+			paddle.moveUpAndDraw(graphToBack);
 
 		}
 		if(keys[2] == true)
@@ -147,24 +152,44 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 	public void keyPressed(KeyEvent e)
 	{
-		switch(toUpperCase(e.getKeyChar()))
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			case 'W' : keys[0]=true; break;
-			case 'Z' : keys[1]=true; break;
-			case 'I' : keys[2]=true; break;
-			case 'M' : keys[3]=true; break;
+			keys[0] = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keys[1] = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keys[2] = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keys[3] = true;
+		}
+		repaint();
 	}
 
 	public void keyReleased(KeyEvent e)
 	{
-		switch(toUpperCase(e.getKeyChar()))
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			case 'W' : keys[0]=false; break;
-			case 'Z' : keys[1]=false; break;
-			case 'I' : keys[2]=false; break;
-			case 'M' : keys[3]=false; break;
+			keys[0] = false;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keys[1] = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keys[2] = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keys[3] = false;
+		}
+		repaint();
 	}
 
 	public void keyTyped(KeyEvent e){}

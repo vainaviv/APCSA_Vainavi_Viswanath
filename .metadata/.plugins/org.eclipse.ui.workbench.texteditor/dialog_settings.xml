@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="aliens.get(j)" key="selection"/>
+		<item value="allTiles" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="items"/>
 			<item value="alienOne"/>
 			<item value="ammo"/>
 			<item value="getCount"/>
@@ -15,9 +16,9 @@
 			<item value="getCouny"/>
 			<item value="getPixels2D"/>
 			<item value="getPixel2D"/>
-			<item value="setPos"/>
 		</list>
 		<list key="replacehistory">
+			<item value="allTiles"/>
 			<item value="aliens.get(j)"/>
 			<item value="shots.get(i)"/>
 		</list>
