@@ -422,6 +422,40 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void encode(Picture messagePict){
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  for (int row = 0; row < messagePixels.length; row++){
+		  for (int col=0; col<messagePixels[0].length; col++){
+			  currPixel = currPixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK)<50){
+				  currPixel.setRed((currPixel.getRed()/10)*10 + 5);
+				  currPixel.setBlue((currPixel.getBlue()/10)*10 + 5);
+				  currPixel.setGreen((currPixel.getGreen()/10)*10 + 5);
+			  }
+		  }
+	  } 
+  }
+  
+  public void decode(){
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel currPix = null;
+	  for (int i=0; i<this.getHeight();i++){
+		  for (int j=0; j<this.getWidth();j++){
+			  currPix = pixels[i][j];
+			  if ((currPix.getBlue() + currPix.getRed() + currPix.getGreen())%10 == 5
+					  && currPix.getBlue()%10 ==5 && currPix.getRed()%10 == 5 &&
+					  currPix.getGreen()%10 == 5){
+				  pixels[i][j].setColor(Color.BLACK);
+			  }
+		  }
+	  }
+  }
+
+  
   
   /* Main method for testing - each class in Java can have a main 
    * method 

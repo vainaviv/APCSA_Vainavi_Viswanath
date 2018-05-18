@@ -159,6 +159,17 @@ public class PictureTester
       }
       redMoto.explore();
   }
+  
+  public static void testEncodeDecode(String picture){
+	  Picture message = new Picture(picture);
+	  Picture beach = new Picture("H:\\pixLab\\images\\beach.jpg");
+	  beach.explore();
+	  beach.encode(message);
+	  beach.explore();
+	  beach.decode();
+	  beach.explore();
+  }
+ 
 
   
   /** Main method for testing.  Every class can have a main
@@ -167,7 +178,8 @@ public class PictureTester
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want
-	testBlur(190,160,20,20,10);
+	//testBlur(190,160,20,20,10);
+	  testEncodeDecode("H:\\pixLab\\images\\msg.jpg");
     // to run
     //testZeroBlue();
     //testKeepOnlyBlue();
